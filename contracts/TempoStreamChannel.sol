@@ -226,7 +226,6 @@ contract TempoStreamChannel is EIP712, ReentrancyGuard {
         uint256 deadline
     ) external nonReentrant returns (bytes32 channelId) {
         if (payee == address(0)) revert ZeroAddress();
-        if (authorizedSigner == address(0)) revert ZeroAddress();  // FIX
         if (deposit == 0) revert InvalidAmount();
 
         channelId = keccak256(
